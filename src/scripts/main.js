@@ -18,10 +18,6 @@ appendRow.addEventListener('click', () => {
     return;
   }
 
-  if (currentRow > 2) {
-    removeRow.disabled = false;
-  }
-
   if (fieldRow) {
     const newRow = document.createElement('tr');
 
@@ -32,12 +28,15 @@ appendRow.addEventListener('click', () => {
       appendRow.disabled = true;
     }
   }
+
+  if (currentRow > 2) {
+    removeRow.disabled = false;
+  }
 });
 
 removeRow.addEventListener('click', () => {
   const tbody = document.querySelector('tbody');
   const allRows = tbody.querySelectorAll('tr');
-  // debugger
 
   if (allRows.length > 2) {
     allRows[allRows.length - 1].remove();
@@ -48,7 +47,7 @@ removeRow.addEventListener('click', () => {
       removeRow.disabled = true;
     }
 
-    if (newRowCount.length < 10) {
+    if (newRowCount < 10) {
       appendRow.disabled = false;
     }
   }
