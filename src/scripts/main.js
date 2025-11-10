@@ -37,8 +37,8 @@ appendRow.addEventListener('click', () => {
 removeRow.addEventListener('click', () => {
   const tbody = document.querySelector('tbody');
   const allRows = tbody.querySelectorAll('tr');
-
   // debugger
+
   if (allRows.length > 2) {
     allRows[allRows.length - 1].remove();
 
@@ -48,7 +48,7 @@ removeRow.addEventListener('click', () => {
       removeRow.disabled = true;
     }
 
-    if (allRows.length <= 10) {
+    if (newRowCount.length < 10) {
       appendRow.disabled = false;
     }
   }
